@@ -22,15 +22,16 @@ namespace ff
         public static void Main(string[] args)
         {
             
-            ICompiledModel model = GetById<ICompiledModel>(1121);
-            var s = model.Name;
+            var model = GetById<ICompiledModel>(1121);
+            Console.WriteLine(model.Name);
 
-            ICompiledMake make = GetMake(model);
-            var r = make.Name;
+            var make = GetMake(model);
+            Console.WriteLine(make.Name);
 
-            ICompiledMake makeById = GetById<ICompiledMake>(25545);
-            var t = makeById.Name;
+            var makeById = GetById<ICompiledMake>(25545);
+            Console.WriteLine(makeById.Name);
 
+            Console.ReadLine();
         }
 
         /// <summary>
@@ -41,7 +42,7 @@ namespace ff
         /// <returns>T.</returns>
         private static T GetById<T>(int id) where T : class
         {
-            Assembly ass = Assembly.Load("Parkers.Vehicles.Compiled");
+            var ass = Assembly.Load("Parkers.Vehicles.Compiled");
             var types = ass.TypesImplementing<T>();
             var match = types.SingleOrDefault(x =>
             {
@@ -60,7 +61,7 @@ namespace ff
         {
             ICompiledMake result = null;
 
-            MakeAttribute attrib = model.GetType().Attributes<MakeAttribute>().FirstOrDefault();
+            var attrib = model.GetType().Attributes<MakeAttribute>().FirstOrDefault();
 
             if (attrib != null)
             {
@@ -78,7 +79,7 @@ namespace ff
         /// <returns><c>true</c> if the specified x has identifier; otherwise, <c>false</c>.</returns>
         private static bool HasId(Type x, int id)
         {
-            bool result = false;
+            var result = false;
 
             result = x.HasAttribute<IdAttribute>();
 
