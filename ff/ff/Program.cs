@@ -61,7 +61,7 @@ namespace ff
         {
             ICompiledMake result = null;
 
-            var attrib = model.GetType().Attributes<MakeAttribute>().FirstOrDefault();
+            var attrib = typeof(ICompiledModel).Attributes<MakeAttribute>().FirstOrDefault();
 
             if (attrib != null)
             {
