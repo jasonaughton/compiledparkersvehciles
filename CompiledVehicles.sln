@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parkers.Data", "Parkers.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parkers.Vehicles", "Parkers.Vehicles\Parkers.Vehicles.csproj", "{0CBF3346-352F-46D1-B781-DE7886F16DFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ff", "..\ff\ff\ff.csproj", "{1D5ACA8F-392F-4BD2-A03B-80CAD3BCB6B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ff", "ff\ff\ff.csproj", "{1D5ACA8F-392F-4BD2-A03B-80CAD3BCB6B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
