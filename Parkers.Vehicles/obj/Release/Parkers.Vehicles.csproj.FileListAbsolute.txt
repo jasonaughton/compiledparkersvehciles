@@ -1,0 +1,16 @@
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Vehicles.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Vehicles.pdb
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\log4net.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Microsoft.Web.Services3.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Data.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Postcodes.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\StructureMap.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Data.pdb
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Data.xml
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Postcodes.pdb
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\log4net.xml
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\StructureMap.xml
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\bin\Release\Parkers.Postcodes.XmlSerializers.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\obj\Release\Parkers.Vehicles.csprojResolveAssemblyReference.cache
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\obj\Release\Parkers.Vehicles.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Vehicles\obj\Release\Parkers.Vehicles.pdb

@@ -1,0 +1,6 @@
+C:\Dev\Repo\Git\parkers\Src\Parkers.Data\bin\Parkers.Data.xml
+C:\Dev\Repo\Git\parkers\Src\Parkers.Data\bin\Parkers.Data.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Data\bin\Parkers.Data.pdb
+C:\Dev\Repo\Git\parkers\Src\Parkers.Data\obj\Debug\Parkers.Data.csprojResolveAssemblyReference.cache
+C:\Dev\Repo\Git\parkers\Src\Parkers.Data\obj\Debug\Parkers.Data.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Data\obj\Debug\Parkers.Data.pdb

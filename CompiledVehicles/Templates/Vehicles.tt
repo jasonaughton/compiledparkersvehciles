@@ -1,0 +1,52 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)CompiledVehicles\bin\Debug\Parkers.Vehicles.dll" #>
+<#@ assembly name="$(SolutionDir)CompiledVehicles\bin\Debug\Parkers.Data.dll" #>
+<#@ assembly name="System.Configuration" #>
+<#@ import namespace="System.Configuration" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Parkers.Vehicles" #>
+<#@ import namespace="Parkers.Data" #>
+<#@ output extension=".cs" #>
+
+using CompiledVehicles.Templates;
+namespace Parkers.Vehicles.Compiled
+{
+<# 
+var provider = new Parkers.Vehicles.CarProvider();
+var makes = provider.GetManufacturers();
+var makeIndex = 0;
+var modelIndex = 0;
+foreach (var make in makes)
+{
+var makeName = "Make" + makeIndex;
+makeIndex++;
+#>
+[Id(<#= make.Id #>)]
+public class <#= makeName #> : ICompiledMake
+{
+public string Name{get{return "<#= make.Name #>";}}
+public int Id{get{return <#= make.Id #>;}}
+}
+<#
+var models = provider.GetModelsByManufacturerId(make.Id);
+foreach (var model in models)
+{
+var modelName = "Model" + modelIndex;
+modelIndex++;
+#>
+[Id(<#= model.Id #>)]
+[Make(typeof(<#= makeName #>))]
+public class <#= modelName #> : ICompiledModel
+{
+public string Name{get{return "<#= model.Name #>";}}
+public int Id{get{return <#= model.Id #>;}}
+}
+<#
+}
+}
+#>
+}

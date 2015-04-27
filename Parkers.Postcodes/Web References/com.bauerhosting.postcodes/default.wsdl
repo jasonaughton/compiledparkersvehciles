@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://postcodes.emaphosting.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://postcodes.emaphosting.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://postcodes.emaphosting.com">
+      <s:element name="GetPostcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPostcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPostcodeResult" type="tns:AddressResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddressResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationResult" type="tns:GridRef" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GridRef">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Easting" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Northing" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Longitude" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="houseNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressResult" type="tns:AddressResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddresses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="postcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="houseNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressesResult" type="tns:ArrayOfAddressResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAddressResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AddressResult" nillable="true" type="tns:AddressResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddressResult" nillable="true" type="tns:AddressResult" />
+      <s:element name="GridRef" nillable="true" type="tns:GridRef" />
+      <s:element name="ArrayOfAddressResult" nillable="true" type="tns:ArrayOfAddressResult" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPostcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPostcode" />
+  </wsdl:message>
+  <wsdl:message name="GetPostcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPostcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddresses" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPostcodeHttpGetIn">
+    <wsdl:part name="address" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPostcodeHttpGetOut">
+    <wsdl:part name="Body" element="tns:AddressResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationHttpGetOut">
+    <wsdl:part name="Body" element="tns:GridRef" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="houseNumber" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressHttpGetOut">
+    <wsdl:part name="Body" element="tns:AddressResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesHttpGetIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="houseNumber" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAddressResult" />
+  </wsdl:message>
+  <wsdl:message name="GetPostcodeHttpPostIn">
+    <wsdl:part name="address" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPostcodeHttpPostOut">
+    <wsdl:part name="Body" element="tns:AddressResult" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationHttpPostOut">
+    <wsdl:part name="Body" element="tns:GridRef" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="houseNumber" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressHttpPostOut">
+    <wsdl:part name="Body" element="tns:AddressResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesHttpPostIn">
+    <wsdl:part name="postcode" type="s:string" />
+    <wsdl:part name="houseNumber" type="s:string" />
+    <wsdl:part name="site" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAddressResult" />
+  </wsdl:message>
+  <wsdl:portType name="PostcodeServiceSoap">
+    <wsdl:operation name="GetPostcode">
+      <wsdl:input message="tns:GetPostcodeSoapIn" />
+      <wsdl:output message="tns:GetPostcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:input message="tns:GetLocationSoapIn" />
+      <wsdl:output message="tns:GetLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <wsdl:input message="tns:GetAddressSoapIn" />
+      <wsdl:output message="tns:GetAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <wsdl:input message="tns:GetAddressesSoapIn" />
+      <wsdl:output message="tns:GetAddressesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PostcodeServiceHttpGet">
+    <wsdl:operation name="GetPostcode">
+      <wsdl:input message="tns:GetPostcodeHttpGetIn" />
+      <wsdl:output message="tns:GetPostcodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:input message="tns:GetLocationHttpGetIn" />
+      <wsdl:output message="tns:GetLocationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <wsdl:input message="tns:GetAddressHttpGetIn" />
+      <wsdl:output message="tns:GetAddressHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <wsdl:input message="tns:GetAddressesHttpGetIn" />
+      <wsdl:output message="tns:GetAddressesHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PostcodeServiceHttpPost">
+    <wsdl:operation name="GetPostcode">
+      <wsdl:input message="tns:GetPostcodeHttpPostIn" />
+      <wsdl:output message="tns:GetPostcodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:input message="tns:GetLocationHttpPostIn" />
+      <wsdl:output message="tns:GetLocationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <wsdl:input message="tns:GetAddressHttpPostIn" />
+      <wsdl:output message="tns:GetAddressHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <wsdl:input message="tns:GetAddressesHttpPostIn" />
+      <wsdl:output message="tns:GetAddressesHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PostcodeServiceSoap" type="tns:PostcodeServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPostcode">
+      <soap:operation soapAction="http://postcodes.emaphosting.com/GetPostcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://postcodes.emaphosting.com/GetLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <soap:operation soapAction="http://postcodes.emaphosting.com/GetAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <soap:operation soapAction="http://postcodes.emaphosting.com/GetAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PostcodeServiceSoap12" type="tns:PostcodeServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPostcode">
+      <soap12:operation soapAction="http://postcodes.emaphosting.com/GetPostcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap12:operation soapAction="http://postcodes.emaphosting.com/GetLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <soap12:operation soapAction="http://postcodes.emaphosting.com/GetAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <soap12:operation soapAction="http://postcodes.emaphosting.com/GetAddresses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PostcodeServiceHttpGet" type="tns:PostcodeServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetPostcode">
+      <http:operation location="/GetPostcode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <http:operation location="/GetLocation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <http:operation location="/GetAddress" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <http:operation location="/GetAddresses" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PostcodeServiceHttpPost" type="tns:PostcodeServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetPostcode">
+      <http:operation location="/GetPostcode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <http:operation location="/GetLocation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <http:operation location="/GetAddress" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <http:operation location="/GetAddresses" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PostcodeService">
+    <wsdl:port name="PostcodeServiceSoap" binding="tns:PostcodeServiceSoap">
+      <soap:address location="http://postcodes.bauerhosting.com/default.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PostcodeServiceSoap12" binding="tns:PostcodeServiceSoap12">
+      <soap12:address location="http://postcodes.bauerhosting.com/default.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PostcodeServiceHttpGet" binding="tns:PostcodeServiceHttpGet">
+      <http:address location="http://postcodes.bauerhosting.com/default.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PostcodeServiceHttpPost" binding="tns:PostcodeServiceHttpPost">
+      <http:address location="http://postcodes.bauerhosting.com/default.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

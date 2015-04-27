@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parkers.Postcodes</name>
+    </assembly>
+    <members>
+        <member name="T:Parkers.Postcodes.Address">
+            <summary>
+            A postal address
+            </summary>
+        </member>
+        <member name="M:Parkers.Postcodes.Address.Parse(System.String)">
+            <summary>
+            Create an Address from a single string, probably the result of a call to CapScan
+            </summary>
+            <remarks>
+            <para>The address is assumed to be in one of the following forms</para>
+            <list type="bullet">
+            <item>[line1],[town],[county],[postcode]</item>
+            <item>[line1],[line2],[town],[county],[postcode]</item>
+            <item>[line1],LONDON,[postcode]</item>
+            <item>[line1],[line2],LONDON,[postcode]</item>
+            </list>
+            <para>Line2 will combine any additional lines between the first and the town, so may contains commas.</para>
+            <para>For London addresses, County is an empty string.</para>
+            <para>If </para>
+            </remarks>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Postcodes.Coordinates.LatLng.ToWGS84">
+            <summary>
+            Converts this instance to WGS84, assuming that it is currently based on the Airy1830 datum.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Postcodes.Coordinates.LatLng.ToAiry1830">
+            <summary>
+            Converts this instance to Airy1830, assuming that it is currently based on the WGS84 datum.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Postcodes.Coordinates.LatLng.ToOsRef">
+            <summary>
+            Converts this instance to an OSGB36 easting and northing, assuming that it is based on the WGS84 datum.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Postcodes.Coordinates.LatLng.ToOsRefFromAiry1830">
+            <summary>
+            Converts this instance to an OSGB36 easting and northing, assuming that it is based on the Airy1830 datum.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Postcodes.Coordinates.OsRef.ToLatLng">
+            <summary>
+            Converts this instance to a WGS84 latitude and longitude
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Postcodes.Coordinates.OsRef.ToAiry1830LatLng">
+            <summary>
+            Converts this instance to an Airy1830 latitude and longitude
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Postcodes.GridRef.DistanceInMetresFrom(Parkers.Postcodes.GridRef)">
+            <summary>
+            Calculates the distance from the specified GridRef in metres
+            </summary>
+            <param name="start">Another GridRef</param>
+            <returns>A distance in metres</returns>
+        </member>
+        <member name="M:Parkers.Postcodes.GridRef.DistanceInMilesFrom(Parkers.Postcodes.GridRef)">
+            <summary>
+            Calculates the distance from the specified GridRef in miles
+            </summary>
+            <param name="start">Another GridRef</param>
+            <returns>A distance in miles</returns>
+        </member>
+        <member name="M:Maxmind.Country.#ctor(System.String,System.String)">
+             Creates a new Country.
+            
+             @param code the country code.
+             @param name the country name.
+        </member>
+        <member name="M:Maxmind.Country.getCode">
+             Returns the ISO two-letter country code of this country.
+            
+             @return the country code.
+        </member>
+        <member name="M:Maxmind.Country.getName">
+             Returns the name of this country.
+            
+             @return the country name.
+        </member>
+        <member name="M:Maxmind.DatabaseInfo.#ctor(System.String)">
+            Creates a new DatabaseInfo object given the database info String.
+            @param info
+        </member>
+        <member name="M:Maxmind.DatabaseInfo.isPremium">
+             Returns true if the database is the premium version.
+            
+             @return true if the premium version of the database.
+        </member>
+        <member name="M:Maxmind.DatabaseInfo.getDate">
+             Returns the date of the database.
+            
+             @return the date of the database.
+        </member>
+        <member name="T:Parkers.Postcodes.Postcode">
+            <summary>
+            Represents a UK postcode. Provides location data via CapScan,
+            and supports parsing out the component parts of the postcode.
+            </summary>
+        </member>
+        <member name="M:Parkers.Postcodes.Postcode.Parse">
+            <summary>
+            Checks whether Value is a valid postcode, and extracts the Area and Outcode if it is.
+            If Value is not a valid complete postcode, extracts an Area and Outcode is possible.
+            </summary>
+            <remarks>
+            Valid formats are (with or without the space)
+            A1 1AA
+            A11 1AA
+            A1A 1AA
+            AA1 1AA
+            AA11 1AA
+            </remarks>
+            <returns>true if Value is a valid complete postcode, false otherwise</returns>
+        </member>
+        <member name="M:Parkers.Postcodes.Postcode.GetLocation">
+            <summary>
+            Returns a grid reference for the postcode, or null if none can be determined. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.#ctor">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetPostcode(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetPostcodeAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetPostcodeAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetLocation(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetLocationAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetLocationAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddress(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddressAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddressAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddresses(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddressesAsync(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddressesAsync(System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="E:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetPostcodeCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetLocationCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddressCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Parkers.Postcodes.com.bauerhosting.postcodes.PostcodeService.GetAddressesCompleted">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.AddressResult">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.AddressResult.Line1">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.AddressResult.Line2">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.AddressResult.Town">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.AddressResult.County">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.AddressResult.Postcode">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GridRef">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GridRef.Easting">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GridRef.Northing">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GridRef.Latitude">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GridRef.Longitude">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetPostcodeCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetPostcodeCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GetPostcodeCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetLocationCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetLocationCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GetLocationCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetAddressCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetAddressCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GetAddressCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetAddressesCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Parkers.Postcodes.com.bauerhosting.postcodes.GetAddressesCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Parkers.Postcodes.com.bauerhosting.postcodes.GetAddressesCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+    </members>
+</doc>

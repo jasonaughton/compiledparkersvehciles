@@ -1,0 +1,547 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Parkers.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Parkers.Data.CacheUtil">
+            <summary>
+            Utility class to access the ASP.NET cache.
+            </summary>
+            <remarks>
+            These methods are accessible anywhere, whether or not HttpContext.Current is available.
+            </remarks>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.Get``1(System.String)">
+            <summary>
+            Gets a given cache item as a given type.
+            </summary>
+            <typeparam name="T">The type that the cache item is expected to be</typeparam>
+            <param name="key">The cache key to retrieve</param>
+            <returns>The cache item, or default(T) if the cache item is not present or is not of type T</returns>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.Put(System.Object,System.String)">
+            <summary>
+            Inserts a cache item with a 15 minute absolute expiration and CacheItemPriority.Default
+            </summary>
+            <param name="item"></param>
+            <param name="key"></param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.Put(System.Object,System.String,System.TimeSpan)">
+            <summary>
+            Inserts a cache item with a given absolute expiration and CacheItemPriority.Default
+            </summary>
+            <param name="item"></param>
+            <param name="key"></param>
+            <param name="duration"></param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.Put(System.Object,System.String,System.TimeSpan,System.Web.Caching.CacheItemPriority)">
+            <summary>
+            Inserts a cache item with a given absolute expiration and priority
+            </summary>
+            <param name="item"></param>
+            <param name="key"></param>
+            <param name="duration"></param>
+            <param name="priority"></param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.Put(System.Object,System.String,System.TimeSpan,System.Web.Caching.CacheItemPriority,System.Web.Caching.CacheItemRemovedCallback)">
+            <summary>
+            Inserts a cache item with a given absolute expiration, priority and removal callback
+            </summary>
+            <param name="item">The item.</param>
+            <param name="key">The key.</param>
+            <param name="duration">The duration.</param>
+            <param name="priority">The priority.</param>
+            <param name="onRemovedCallback">The on removed callback.</param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.Put(System.Object,System.String,System.TimeSpan,System.Web.Caching.CacheItemUpdateCallback)">
+            <summary>
+            Inserts a cache item with a given absolute expiration, priority and update callback
+            </summary>
+            <param name="item">The item.</param>
+            <param name="key">The key.</param>
+            <param name="duration">The duration.</param>
+            <param name="onUpdateCallback">The on update callback.</param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.PutSliding(System.Object,System.String,System.TimeSpan,System.Web.Caching.CacheItemPriority)">
+            <summary>
+            Inserts a cache item with a given sliding expiration and priority
+            </summary>
+            <param name="item"></param>
+            <param name="key"></param>
+            <param name="duration"></param>
+            <param name="priority"></param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.PutSliding(System.Object,System.String,System.TimeSpan,System.Web.Caching.CacheItemPriority,System.Web.Caching.CacheItemRemovedCallback)">
+            <summary>
+            Inserts a cache item with a given sliding expiration, priority and removal callback
+            </summary>
+            <param name="item">The item.</param>
+            <param name="key">The key.</param>
+            <param name="duration">The duration.</param>
+            <param name="priority">The priority.</param>
+            <param name="onRemovedCallback">The on removed callback.</param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.PutSliding(System.Object,System.String,System.TimeSpan,System.Web.Caching.CacheItemUpdateCallback)">
+            <summary>
+            Inserts a cache item with a given sliding expiration, priority and update callback
+            </summary>
+            <param name="item">The item.</param>
+            <param name="key">The key.</param>
+            <param name="duration">The duration.</param>
+            <param name="onUpdateCallback">The on update callback.</param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.Remove(System.String)">
+            <summary>
+            Removes the specified key.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Parkers.Data.CacheUtil.GenerateFuzzyDuration(System.TimeSpan,System.Double)">
+            <summary>
+            Generates the duration of the fuzzed.
+            </summary>
+            <param name="duration">The initial duration.</param>
+            <param name="variation">The variation. The percentage change allowed to the supplied duration expressed as 0 -> 1 for 0 -> 100%</param>
+            <returns>The fuzzed duration</returns>
+        </member>
+        <member name="T:Parkers.Data.DataUtil">
+            <summary>
+            Utility class for dealing with IDataRecords.
+            </summary>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetInt64(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as an Int64, or 0 if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetInt32(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as an Int32, or 0 if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetInt32(System.Data.IDataRecord,System.String,System.Int32)">
+            <summary>
+            Gets a given column as an Int32, or nullValue if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <param name="nullValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetInt16(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as an Int16, or 0 if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetDecimal(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as a Decimal, or 0 if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetDouble(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as a Double, or 0 if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetDouble(System.Data.IDataRecord,System.String,System.Double)">
+            <summary>
+            Gets a given column as a Double, or nullValue if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <param name="nullValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetGuid(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as a Guid, or Guid.Empty if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetNullableDateTime(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets the nullable date time.
+            </summary>
+            <param name="dr">The dr.</param>
+            <param name="column">The column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetNullableInt(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets the nullable int.
+            </summary>
+            <param name="dr">The dr.</param>
+            <param name="column">The column.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetNullableBool(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets the nullable bool.
+            </summary>
+            <param name="dr">The dr.</param>
+            <param name="column">The column.</param>
+            <returns>the value as a nullable bool</returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetDateTime(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as a DateTime, or DateTime.MinValue if the column is NULL
+            </summary>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetDateTime(System.Data.IDataRecord,System.String,System.DateTime)">
+            <summary>
+            Gets a given column as a DateTime, or nullValue if the column is NULL
+            </summary>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetBoolean(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as a Boolean, or False if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetString(System.Data.IDataRecord,System.String)">
+            <summary>
+            Gets a given column as a string, or an empty string if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.GetString(System.Data.IDataRecord,System.String,System.String)">
+            <summary>
+            Gets a given column as a string, or nullValue if the column is NULL
+            </summary>
+            <param name="dr"></param>
+            <param name="column"></param>
+            <param name="nullValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.TranslateNull(System.Object,System.Object)">
+            <summary>
+            Returns nullValue if obj is null, or obj otherwise.
+            </summary>
+            <param name="obj"></param>
+            <param name="nullValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.DataUtil.TranslateNull(System.Object)">
+            <summary>
+            Returns DBNull.Value if obj is null, or obj otherwise.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Parkers.Data.TinyEncryptionAlgorithm">
+            <summary>
+            Experian VRM process
+            </summary>
+        </member>
+        <member name="F:Parkers.Data.TinyEncryptionAlgorithm.VrmMaxLength">
+            <summary>
+            Maximum number plate length
+            </summary>
+        </member>
+        <member name="F:Parkers.Data.TinyEncryptionAlgorithm.VrmMinLength">
+            <summary>
+            Minimun number plate length
+            </summary>
+        </member>
+        <member name="F:Parkers.Data.TinyEncryptionAlgorithm.MaxKeyLength">
+            <summary>
+            Maximum encryption key length
+            </summary>
+        </member>
+        <member name="F:Parkers.Data.TinyEncryptionAlgorithm.BlockSize">
+            <summary>
+            Encryption block size
+            </summary>
+        </member>
+        <member name="M:Parkers.Data.TinyEncryptionAlgorithm.EncryptString(System.String,System.String)">
+            <summary>
+            Encrypts the string.
+            </summary>
+            <param name="numberPlate">The number plate string</param>
+            <param name="encryptionKey">The encryption key</param>
+            <returns>The encrypted number plate</returns>
+        </member>
+        <member name="M:Parkers.Data.TinyEncryptionAlgorithm.FormatKey(System.String)">
+            <summary>
+            Formats the key.
+            </summary>
+            <param name="key">The encryption key.</param>
+            <returns>Formatted key</returns>
+        </member>
+        <member name="M:Parkers.Data.TinyEncryptionAlgorithm.Encode(System.UInt32[],System.UInt32[])">
+            <summary>
+            Codes the specified number plate segment.
+            </summary>
+            <param name="numberPlateSegments">The temperary data</param>
+            <param name="keyValue">The formatted key</param>
+        </member>
+        <member name="M:Parkers.Data.TinyEncryptionAlgorithm.ConvertStringToUInt(System.String)">
+            <summary>
+            Converts the string to U int.
+            </summary>
+            <param name="formattedKeyString">The encryption key</param>
+            <returns>Uint encryption key</returns>
+        </member>
+        <member name="T:Parkers.Data.Sproc">
+            <summary>
+            Encapsulates a SQL stored procedure call.
+            </summary>
+            <example>
+			<code>
+				Sproc spValuation = new Sproc("getCARPriceUsedPrice");
+
+				spValuation.Parameters.Add("@CARDerId", SqlDbType.Int).Value = 7636;
+				spValuation.Parameters.Add("@YearPlateId", SqlDbType.Int).Value = 57;
+				spValuation.Parameters.Add("@Mileage", SqlDbType.Int).Value = DBNull.Value;
+
+				using ( SqlDataReader drValuation = spValuation.ExecuteReader() )
+				{
+					while ( drValuation != null &amp;&amp; drValuation.Read() )
+					{
+						...
+					}
+				}
+			</code>
+		</example>
+        </member>
+        <member name="M:Parkers.Data.Sproc.#ctor">
+            <summary>
+            Create a new Sproc to execute against the default database on the default server.
+            The Name property must be set before any Execute...() methods can be used.
+            </summary>
+        </member>
+        <member name="M:Parkers.Data.Sproc.#ctor(System.String)">
+            <overloads>
+            Initialises a new instance of the Sproc class.
+            </overloads>
+            <summary>
+            Creates a new Sproc to execute against the default database and server.
+            </summary>
+            <param name="name">Stored procedure name</param>
+        </member>
+        <member name="M:Parkers.Data.Sproc.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new Sproc to execute against the specified database on the default server.
+            </summary>
+            <param name="name">Stored procedure name</param>
+            <param name="database">Database name</param>
+        </member>
+        <member name="M:Parkers.Data.Sproc.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new Sproc to execute against the specified database on the specified server.
+            </summary>
+            <param name="name">Stored procedure name</param>
+            <param name="database">Database name</param>
+            <param name="server">Server name</param>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteNonQuery">
+            <summary>
+            Executes the command and returns a bool indicating success or failure
+            </summary>
+            <returns><c>true</c> if the call completed successfully, <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteScalar">
+            <summary>
+            Executes the command and returns the first column of the first row.
+            </summary>
+            <returns>The first column of the first row, or null if the result set is empty</returns>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteDataSet">
+            <overloads>
+            Executes the command and returns a DataSet containing the results.
+            </overloads>
+            <summary>
+            Create a new DataSet and use "Table" as the table name for the results.
+            </summary>
+            <returns>A DataSet</returns>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteDataSet(System.Data.DataSet)">
+            <summary>
+            Add the results to an existing DataSet, using table name "Table".
+            </summary>
+            <param name="target">The DataSet to add the results to</param>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteDataSet(System.Data.DataSet,System.String)">
+            <summary>
+            Add the results to an existing DataSet, using the specified tablename.
+            </summary>
+            <param name="target">The DataSet to add the results to</param>
+            <param name="tablename">The tablename for the results</param>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteReader">
+            <summary>
+            Executes the command and returns a SqlDataReader
+            </summary>
+            <returns>A SqlDataReader containing the results of the call</returns>
+            <remarks>
+            The SqlDataReader is created with CommandBehavior.CloseConnection, so the
+            connection will be automatically closed when the reader is closed.
+            </remarks>
+            <example>
+			<code>
+				Sproc spManufacturer = new Sproc("getCARReviewManufacturer");
+
+				using ( SqlDataReader drManufacturer = spManufacturer.ExecuteReader() )
+				{
+					while ( drManufacturer != null &amp;&amp; drManufacturer.Read() )
+					{
+						...
+					}
+				}
+			</code>
+		</example>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteList``1(System.Converter{System.Data.IDataRecord,``0})">
+            <summary>
+            Executes the command and returns a List of the specified type
+            </summary>
+            <typeparam name="T">The type of the output objects</typeparam>
+            <param name="converter">A delegate which creates an object from a row of the result set</param>
+            <returns>A List with one item for each row of the result set, excluding any rows for which the converter returned null.
+            Returns an empty list if no rows are returned or the command fails.</returns>
+            <example>
+			<code>
+				Sproc sp = new Sproc( "Man_List_S", _database );
+				result = sp.ExecuteList&lt;int&gt;( dr =&gt; DataUtil.GetInt32( dr, "CARManId" ) );
+			</code>
+			<code>
+				internal static List&lt;Option&gt; GetOptionsByDerivativeId( int derivId )
+				{
+					Sproc sp = new Sproc( "DerOption_S", _database );
+					sp.Parameters.Add( "@CARDerId", SqlDbType.Int ).Value = derivId;
+
+					return sp.ExecuteList&lt;Option&gt;( GetOptionFromDataReader );
+				}
+
+				private static Option GetOptionFromDataReader( IDataRecord dr )
+				{
+					Option opt = new Option();
+
+					opt.CategoryId = DataUtil.GetInt32( dr, "CategoryId" );
+					
+					/* ... */
+					
+					return opt;
+				}
+			</code>
+		</example>
+        </member>
+        <member name="M:Parkers.Data.Sproc.ExecuteObject``1(System.Converter{System.Data.IDataRecord,``0})">
+            <summary>
+            Executes the command and returns an object created from the first row of the result set.
+            </summary>
+            <typeparam name="T">The type of the output object</typeparam>
+            <param name="converter">A delegate which creates an object from a row of the result set</param>
+            <returns>The result of passing the first row of the result set to converter, or null if no rows were returned.</returns>
+            <example>
+			<code>
+				internal static UserHistory FromId( Guid id, DateTime? ifModifiedSince )
+				{
+					Sproc sp = new Sproc( "UserHistory_S", _database );
+					sp.Parameters.Add( "@HistoryId", System.Data.SqlDbType.UniqueIdentifier ).Value = id;
+
+					return sp.ExecuteObject&lt;UserHistory&gt;( FromDataRecord );
+				}
+
+				internal static UserHistory FromDataRecord( IDataRecord dr )
+				{
+					UserHistory h = new UserHistory();
+					h.Id = (Guid) dr["HistoryId"];
+					h._dbUpdated = DataUtil.GetDateTime( dr, "LastUpdated", DateTime.MinValue );
+	
+					return h;
+				}
+			</code>
+		</example>
+        </member>
+        <member name="M:Parkers.Data.Sproc.BeginExecuteList``1(System.Converter{System.Data.IDataRecord,``0},System.AsyncCallback)">
+            <summary>
+            Executes the command asynchronously to return a List of the specified type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="converter">A delegate which creates an object from a row of the result set</param>
+            <param name="callback"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.Sproc.EndExecuteList``1(System.IAsyncResult)">
+            <summary>
+            Retrieves the List of results from a complete asynchronous call
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Parkers.Data.Sproc.FillParameters">
+            <summary>
+            Fill the Parameters collection by querying the database
+            </summary>
+            <returns><c>true</c> on success, <c>false</c> otherwise</returns>
+            <remarks>
+            Since this requires a round-trip to the database, it should not be used routinely.
+            </remarks>
+        </member>
+        <member name="M:Parkers.Data.Sproc.Clone">
+            <summary>
+            Creates a deep copy of this instance.
+            </summary>
+            <returns>A new Sproc that is a deep copy of this instance</returns>
+        </member>
+        <member name="M:Parkers.Data.Sproc.Dispose">
+            <summary>
+            Disposes innerCommand
+            </summary>
+        </member>
+        <member name="P:Parkers.Data.Sproc.Name">
+            <summary>
+            The name of the stored procedure to execute
+            </summary>
+            <value>A stored procedure name</value>
+        </member>
+        <member name="P:Parkers.Data.Sproc.Database">
+            <summary>
+            The name of the database which the command will execute against
+            </summary>
+            <value>A database name</value>
+                   
+        </member>
+        <member name="P:Parkers.Data.Sproc.Server">
+            <summary>
+            The connectionStrings entry to use
+            </summary>
+            <value>The name of a connectionStrings entry</value>
+        </member>
+        <member name="P:Parkers.Data.Sproc.Parameters">
+            <summary>
+            Parameters collection for the stored procedure call
+            </summary>
+            <value>The Parameters property of the internal SqlCommand</value>
+        </member>
+        <member name="P:Parkers.Data.Sproc.CommandTimeout">
+            <summary>
+            The time (in seconds) to wait for the command to execute.
+            </summary>
+        </member>
+    </members>
+</doc>

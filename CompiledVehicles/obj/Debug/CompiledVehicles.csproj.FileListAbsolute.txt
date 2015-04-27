@@ -1,0 +1,16 @@
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\obj\Debug\CompiledVehicles.csprojResolveAssemblyReference.cache
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\CompiledVehicles.dll.config
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\CompiledVehicles.dll
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\CompiledVehicles.pdb
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\log4net.dll
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\Microsoft.Web.Services3.dll
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\Parkers.Data.dll
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\Parkers.Vehicles.dll
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\StructureMap.dll
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\Parkers.Data.pdb
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\Parkers.Vehicles.pdb
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\Parkers.Vehicles.xml
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\log4net.xml
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\bin\Debug\StructureMap.xml
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\obj\Debug\CompiledVehicles.dll
+C:\Dev\unmanaged\CompiledVehicles\CompiledVehicles\obj\Debug\CompiledVehicles.pdb

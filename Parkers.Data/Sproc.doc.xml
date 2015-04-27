@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<comments>
+	<section name='Class'>
+		<example>
+			<code>
+				Sproc spValuation = new Sproc("getCARPriceUsedPrice");
+
+				spValuation.Parameters.Add("@CARDerId", SqlDbType.Int).Value = 7636;
+				spValuation.Parameters.Add("@YearPlateId", SqlDbType.Int).Value = 57;
+				spValuation.Parameters.Add("@Mileage", SqlDbType.Int).Value = DBNull.Value;
+
+				using ( SqlDataReader drValuation = spValuation.ExecuteReader() )
+				{
+					while ( drValuation != null &amp;&amp; drValuation.Read() )
+					{
+						...
+					}
+				}
+			</code>
+		</example>
+	</section>
+	
+	<section name='ExecuteReader'>
+		<example>
+			<code>
+				Sproc spManufacturer = new Sproc("getCARReviewManufacturer");
+
+				using ( SqlDataReader drManufacturer = spManufacturer.ExecuteReader() )
+				{
+					while ( drManufacturer != null &amp;&amp; drManufacturer.Read() )
+					{
+						...
+					}
+				}
+			</code>
+		</example>
+	</section>
+
+	<section name='ExecuteList'>
+		<example>
+			<code>
+				Sproc sp = new Sproc( "Man_List_S", _database );
+				result = sp.ExecuteList&lt;int&gt;( dr => DataUtil.GetInt32( dr, "CARManId" ) );
+			</code>
+			<code>
+				internal static List&lt;Option&gt; GetOptionsByDerivativeId( int derivId )
+				{
+					Sproc sp = new Sproc( "DerOption_S", _database );
+					sp.Parameters.Add( "@CARDerId", SqlDbType.Int ).Value = derivId;
+
+					return sp.ExecuteList&lt;Option&gt;( GetOptionFromDataReader );
+				}
+
+				private static Option GetOptionFromDataReader( IDataRecord dr )
+				{
+					Option opt = new Option();
+
+					opt.CategoryId = DataUtil.GetInt32( dr, "CategoryId" );
+					
+					/* ... */
+					
+					return opt;
+				}
+			</code>
+		</example>
+	</section>
+
+	<section name='ExecuteObject'>
+		<example>
+			<code>
+				internal static UserHistory FromId( Guid id, DateTime? ifModifiedSince )
+				{
+					Sproc sp = new Sproc( "UserHistory_S", _database );
+					sp.Parameters.Add( "@HistoryId", System.Data.SqlDbType.UniqueIdentifier ).Value = id;
+
+					return sp.ExecuteObject&lt;UserHistory&gt;( FromDataRecord );
+				}
+
+				internal static UserHistory FromDataRecord( IDataRecord dr )
+				{
+					UserHistory h = new UserHistory();
+					h.Id = (Guid) dr["HistoryId"];
+					h._dbUpdated = DataUtil.GetDateTime( dr, "LastUpdated", DateTime.MinValue );
+	
+					return h;
+				}
+			</code>
+		</example>
+	</section>
+</comments>

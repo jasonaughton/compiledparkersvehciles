@@ -1,0 +1,11 @@
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\bin\Release\Parkers.Postcodes.dll.config
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\bin\Release\Parkers.Postcodes.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\bin\Release\Parkers.Postcodes.XmlSerializers.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\bin\Release\Parkers.Postcodes.pdb
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\bin\Release\Parkers.Data.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\bin\Release\Parkers.Data.pdb
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\bin\Release\Parkers.Data.xml
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\obj\Release\Parkers.Postcodes.csprojResolveAssemblyReference.cache
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\obj\Release\Parkers.Postcodes.dll
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\obj\Release\Parkers.Postcodes.pdb
+C:\Dev\Repo\Git\parkers\Src\Parkers.Postcodes\obj\Release\Parkers.Postcodes.XmlSerializers.dll
